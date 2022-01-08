@@ -1,0 +1,20 @@
+Taken directly from stackoverflow here: https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed
+
+
+"
+To disable entering the sleep mode I had to edit the /etc/systemd/logind.conf file and modify the line:
+
+#HandleLidSwitch=suspend
+
+to
+
+HandleLidSwitch=ignore
+
+Additionally, ensure that the file also has this line:
+
+LidSwitchIgnoreInhibited=no
+
+Then restart the OS via:
+
+sudo service systemd-logind restart
+"
