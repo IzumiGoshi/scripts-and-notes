@@ -14,6 +14,8 @@ func _ready() -> void:
 	"""
 		SPATIAL (with this script)
 			MODEL (object that gets rotated)
+			
+		to rotate the starting rotation rotate this node
 	"""
 	add_child(X)
 	X.add_child(Y)
