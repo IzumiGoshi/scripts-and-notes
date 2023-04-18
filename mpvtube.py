@@ -16,6 +16,8 @@ args = sys.argv[1:]
 args = [int(arg) if arg.isdigit() else arg for arg in args]
 args = dict(list(zip(arg_names, args)))
 
+if 'fps' not in args: args['fps'] = 30
+
 print(args)
 
 
