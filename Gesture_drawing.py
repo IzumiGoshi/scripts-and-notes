@@ -2,10 +2,13 @@ import pyglet
 import os
 import sys
 import random
+import time 
+from pyglet.window import key
 
 
-images_path, seconds = sys.argv[1:]
-seconds = int(seconds)
+images_path = sys.argv[1]
+seconds = float(sys.argv[2])
+FULLSEARCH = 'all' in sys.argv
 
 
 window = pyglet.window.Window(resizable=True)
@@ -19,6 +22,15 @@ def walker(walker_path):
     for f in files:
         if '.jpg' in f.lower() or '.png' in f.lower() or '.jpeg' in f.lower():
             image_files.append(os.path.join(walker_path, f))
+    return image_files
+
+
+def dir_walker(walker_path):
+    image_files = []
+    for root, dirs, files in os.walk(walker_path, topdown=False):
+        for f in files:
+            if '.jpg' in f.lower() or '.png' in f.lower() or '.jpeg' in f.lower():
+                image_files.append(os.path.join(root, f))
     return image_files
 
 
@@ -54,19 +66,10 @@ def recalc_size():
     image.y = offset_height
 
 
-@window.event
-def on_draw():
-    window.clear()
+if FULLSEARCH: image_files = dir_walker(images_path)
+else:          image_files = walker(images_path)
 
-    recalc_size()
-
-    global image
-    image.draw()
-
-
-image_files = walker(images_path)
-
-def choose_image(dt):
+def choose_image():
     chosen = random.choice(image_files)
     global image
     global image_aspect
@@ -74,7 +77,38 @@ def choose_image(dt):
     image = im
     image_aspect = imas
 
-choose_image(0)
-pyglet.clock.schedule_interval(choose_image, seconds)   # called twice a second
+choose_image()
+
+TIMER_START = time.time()
+
+
+label = pyglet.text.Label('99999', font_size=36, x=10, y=window.height - 50)
+label.color = (255, 255, 0, 240)
+
+
+@window.event
+def on_key_press(key, modifiers):
+    if key == pyglet.window.key.RIGHT:
+        choose_image()
+        TIMER_START = time.time()
+
+@window.event
+def on_draw():
+    global  TIMER_START
+    window.clear()
+
+    recalc_size()
+
+    if time.time() - TIMER_START  >= seconds:
+        choose_image()
+        TIMER_START = time.time()
+
+    global image
+    global label
+
+    label.y=window.height - 50
+
+    image.draw()
+    label.draw()
 
 pyglet.app.run()
