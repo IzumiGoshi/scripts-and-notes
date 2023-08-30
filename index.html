@@ -2,14 +2,35 @@
 <html>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<style>
+  body,html {
+      margin: 0;
+      padding: 0;
+      background-color: #1A1713;
+  }
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/640px-Cat_November_2010-1a.jpg" alt="cat test">
-<img src="https://media.tenor.com/lTvMUlltoHgAAAAC/phaseconnect-pippa.gif" alt="pippa gif">
+  * {
+      box-sizing: border-box;
+  }
+
+  .container {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<div class="container">
+    <img src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif" alt="loadge" style="width: 6rem; padding-bottom:2rem;">
+    <img src="https://media.tenor.com/lTvMUlltoHgAAAAC/phaseconnect-pippa.gif" alt="pippa gif">
+</div>
 
 <script>
-  //window.location.href = "http://192.168.2.15:8000/";
+  window.location.href = /*LINK*/"http://192.168.2.15:8000/"/*LINK*/;
 </script>
   
 </body>
