@@ -1,0 +1,8 @@
+# search for the process. 
+
+grep . -r /sys/firmware/acpi/interrupts | grep -v "  0"
+
+# kill the STS enabled one 
+
+sudo -s
+echo "disable" > /sys/firmware/acpi/interrupts/<process> # gpe09
