@@ -1,6 +1,6 @@
 ### Picture
 brightness: 42
-contrast: 60
+contrast: 55
 black boost: 4
 ### COLOR 
 Gamma: 2.2
