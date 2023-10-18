@@ -1,0 +1,2 @@
+YTLINK=$(yt-dlp -f <FORMAT> -g '<URL>')
+ffmpeg -ss 01:26:23.00 -i $YTLINK -vframes 1 -q:v 2 out.jpg
