@@ -1,4 +1,3 @@
-git push https://IzumiGoshi:<TOKEN>@github.com/IzumiGoshi/<REPO>.git
 
 function gitp {
 	GITTOK=$(cat ~/KEYS/github_token)
