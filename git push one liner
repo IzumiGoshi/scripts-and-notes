@@ -1,1 +1,9 @@
 git push https://IzumiGoshi:<TOKEN>@github.com/IzumiGoshi/<REPO>.git
+
+function gitp {
+	GITTOK=$(cat ~/KEYS/github_token)
+	git add --all
+	git commit -m "$1"
+	# echo "git push https://IzumiGoshi:$GITTOK@github.com/IzumiGoshi/$(basename $(pwd)).git"
+	git push https://IzumiGoshi:$GITTOK@github.com/IzumiGoshi/$(basename $(pwd)).git
+}
