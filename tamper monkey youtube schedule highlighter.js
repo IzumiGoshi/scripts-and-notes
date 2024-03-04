@@ -10,7 +10,6 @@
 // ==/UserScript==
 
 
-
 let LAST_RAN = Date.now() - 200;
 
 function fix_times() {
@@ -53,12 +52,10 @@ function fix_times() {
 		new_ih = new_ih.replace('HOURS', '  ' + hours_left + ' HOURS');
 
 		t.innerHTML = new_ih;
+		t.innerHTML = t.innerHTML + "<br><span style=''>" + ih + "</span>";
 
 		LAST_RAN = Date.now();
-		// console.log('RAN');
 	}
 }
-
-// window.addEventListener("load", (event) => { fix_times(); });
 
 document.addEventListener("scroll", (event) => { fix_times(); });
