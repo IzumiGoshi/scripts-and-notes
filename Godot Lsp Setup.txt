@@ -35,3 +35,7 @@ But changing the editor options to:
 Use External Editor: On
 Exec Path: <path/to/script>/start_terminator_with_vim.sh
 Exec Flags: {file}
+
+and writing a small script:
+
+terminator -e "nvim --server /tmp/godot.pipe --remote $1 "   
