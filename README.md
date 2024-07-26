@@ -1,2 +1,2 @@
 # scripts
-a loose grouping of scripts and short tutorials. 
+a loose grouping of scripts notes, and short tutorials. 
