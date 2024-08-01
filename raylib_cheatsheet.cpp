@@ -671,7 +671,7 @@ rmodels
 ██║ ╚═╝ ██║╚██████╔╝██████╔╝╚██████╔╝███████╗███████╗╚═╝    ██║  ██║██║  ██║╚██████╔╝██████╔╝██║╚██████╔╝
 ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝       ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ 
 raudio
-  *.
+  */
 
     // Audio device management functions
     void InitAudioDevice(void);                                     // Initialize audio device and context
